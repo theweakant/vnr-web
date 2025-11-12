@@ -1,3 +1,4 @@
+// Temporarily keep old data structure for compatibility
 export const corruptionCases = [
   {
     id: 1,

@@ -1,81 +1,139 @@
 import React, { forwardRef } from 'react';
+import { motion } from 'framer-motion';
 
 // --- Helper Function ---
-// Hàm tiện ích để nối các class name lại với nhau, loại bỏ các giá trị rỗng.
 export const cn = (...classes) => classes.filter(Boolean).join(' ');
 
+// --- Button Component ---
+export const Button = forwardRef(
+  ({ className = '', variant = 'primary', size = 'md', children, ...props }, ref) => {
+    const baseStyles =
+      'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed';
 
-// --- Button Component (JSX) ---
-export const Button = forwardRef(({ className, variant = 'default', size = 'default', asChild = false, ...props }, ref) => {
-  const Comp = asChild ? 'div' : 'button'; // Dùng div thay cho Slot để đơn giản hóa
+    const variants = {
+      primary:
+        'bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg focus:ring-blue-500',
+      secondary:
+        'bg-slate-200 hover:bg-slate-300 text-slate-900 focus:ring-slate-500',
+      accent:
+        'bg-teal-400 hover:bg-teal-500 text-slate-900 font-semibold focus:ring-teal-400',
+      outline:
+        'border-2 border-blue-600 hover:bg-blue-50 text-blue-600 focus:ring-blue-500',
+      ghost: 'hover:bg-slate-100 text-slate-700 focus:ring-slate-400',
+    };
 
-  const baseClasses = 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50';
+    const sizes = {
+      sm: 'px-3 py-1.5 text-sm',
+      md: 'px-4 py-2 text-base',
+      lg: 'px-6 py-3 text-lg',
+    };
 
-  const variantClasses = {
-    default: 'bg-red-600 text-white shadow hover:bg-red-700/90',
-    destructive: 'bg-red-500 text-white shadow-sm hover:bg-red-500/90',
-    outline: 'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
-    secondary: 'bg-gray-200 text-gray-800 shadow-sm hover:bg-gray-200/80',
-    ghost: 'hover:bg-accent hover:text-accent-foreground',
-    link: 'text-primary underline-offset-4 hover:underline',
-  };
-
-  const sizeClasses = {
-    default: 'h-9 px-4 py-2',
-    sm: 'h-8 rounded-md px-3 text-xs',
-    lg: 'h-10 rounded-md px-8',
-    icon: 'h-9 w-9',
-  };
-
-  return (
-    <Comp
-      className={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
-      ref={ref}
-      {...props}
-    />
-  );
-});
+    return (
+      <motion.button
+        ref={ref}
+        className={cn(baseStyles, variants[variant], sizes[size], className)}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        {...props}
+      >
+        {children}
+      </motion.button>
+    );
+  }
+);
 Button.displayName = 'Button';
 
-
-// --- Card Components (JSX) ---
+// --- Card Components ---
 export const Card = forwardRef(({ className, ...props }, ref) => (
-  <div
+  <motion.div
     ref={ref}
-    className={cn('rounded-xl border bg-card text-card-foreground shadow', className)}
+    className={cn(
+      'rounded-xl border border-slate-200 bg-white text-slate-900 shadow-md hover:shadow-lg transition-shadow',
+      className
+    )}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true, margin: '100px' }}
     {...props}
   />
 ));
 Card.displayName = 'Card';
 
 export const CardHeader = forwardRef(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col space-y-1.5 p-4', className)}
-    {...props}
-  />
+  <div ref={ref} className={cn('flex flex-col space-y-1.5 p-6', className)} {...props} />
 ));
 CardHeader.displayName = 'CardHeader';
 
 export const CardContent = forwardRef(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('p-4 pt-0', className)} {...props} />
+  <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
 ));
 CardContent.displayName = 'CardContent';
 
+export const CardTitle = forwardRef(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn('text-xl font-bold leading-tight tracking-tight text-slate-900', className)}
+    {...props}
+  />
+));
+CardTitle.displayName = 'CardTitle';
 
-// --- Input Component (JSX) ---
-export const Input = forwardRef(({ className, type, ...props }, ref) => {
-  return (
-    <input
-      type={type}
-      className={cn(
-        'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
-  );
-});
+export const CardDescription = forwardRef(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn('text-sm text-slate-600', className)} {...props} />
+));
+CardDescription.displayName = 'CardDescription';
+
+// --- Input Component ---
+export const Input = forwardRef(({ className, type = 'text', ...props }, ref) => (
+  <input
+    type={type}
+    ref={ref}
+    className={cn(
+      'flex h-10 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all',
+      className
+    )}
+    {...props}
+  />
+));
 Input.displayName = 'Input';
+
+// --- Container Component ---
+export const Container = forwardRef(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', className)}
+    {...props}
+  />
+));
+Container.displayName = 'Container';
+
+// --- Section Component ---
+export const Section = forwardRef(
+  ({ className, title, subtitle, children, ...props }, ref) => (
+    <section
+      ref={ref}
+      className={cn('py-12 md:py-16 lg:py-20', className)}
+      {...props}
+    >
+      <Container>
+        {(title || subtitle) && (
+          <motion.div
+            className="mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {title && <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{title}</h2>}
+            {subtitle && <p className="text-lg text-slate-600 max-w-2xl mx-auto">{subtitle}</p>}
+          </motion.div>
+        )}
+        {children}
+      </Container>
+    </section>
+  )
+);
+Section.displayName = 'Section';
 

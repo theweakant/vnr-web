@@ -19,9 +19,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Trang chủ', path: '/' },
-    { name: 'Vụ án', path: '/cases' },
+    { name: 'Đại hội Đảng', path: '/cases' },
     { name: 'Tài liệu', path: '/resources' },
-    // { name: 'Giới thiệu', path: '/about' }
+    { name: 'Giới thiệu', path: '/about' }
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -40,11 +40,11 @@ const Navbar = () => {
           <Link 
             to="/" 
             className="flex items-center space-x-2 focus:outline-none focus:ring-1 focus:ring-red-300 focus:ring-offset-1 rounded-lg p-1"
-            aria-label="Chống Tham Nhũng - Trang chủ"
+            aria-label="VNR202 Lịch sử Đảng - Trang chủ"
           >
             <Shield className="h-8 w-8 text-red-600" aria-hidden="true" />
             <span className="text-xl font-bold text-gray-900">
-              Chống Tham Nhũng
+              VNR202 - Lịch sử Đảng
             </span>
           </Link>
 

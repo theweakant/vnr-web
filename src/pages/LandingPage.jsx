@@ -1,39 +1,11 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
-import { Shield, Users, TrendingUp, BookOpen, ArrowRight, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, Users, TrendingUp, BookOpen, ArrowRight, Quote, ChevronLeft, ChevronRight, Calendar, Target, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { congressData, reformPeriods, youthResponsibility, comparisonTable } from '../data/vnr202Content';
 
 // Helper function to combine class names
 const cn = (...classes) => classes.filter(Boolean).join(' ');
 
-// --- Dữ liệu giả lập (mock data) ---
-const corruptionCases = [
-  {
-    id: 1,
-    title: "Vụ án Việt Á",
-    summary: "Vụ án liên quan đến việc nâng khống giá kit xét nghiệm COVID-19, gây thiệt hại nghiêm trọng cho ngân sách nhà nước.",
-    image: "https://placehold.co/600x400/ef4444/white?text=Vụ+án+Việt+Á"
-  },
-  {
-    id: 2,
-    title: "Vụ án Chuyến bay giải cứu",
-    summary: "Vụ án đưa và nhận hối lộ để cấp phép các chuyến bay đưa công dân Việt Nam về nước trong đại dịch COVID-19.",
-    image: "https://placehold.co/600x400/dc2626/white?text=Chuyến+bay+giải+cứu"
-  },
-  {
-    id: 3,
-    title: "Vụ án Vạn Thịnh Phát",
-    summary: "Vụ án lừa đảo chiếm đoạt tài sản thông qua phát hành trái phiếu, liên quan đến Tập đoàn Vạn Thịnh Phát và SCB.",
-    image: "https://placehold.co/600x400/b91c1c/white?text=Vạn+Thịnh+Phát"
-  },
-  {
-    id: 4,
-    title: "Vụ án AIC",
-    summary: "Vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng tại Bệnh viện Đa khoa Đồng Nai, liên quan đến Công ty AIC.",
-    image: "https://placehold.co/600x400/991b1b/white?text=Vụ+án+AIC"
-  },
-];
-
-// --- Định nghĩa các Component bị thiếu ---
 
 const Container = ({ className, children }) => (
   <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8", className)}>
@@ -234,12 +206,11 @@ const LandingPage = () => {
           <ScrollRevealSection direction="up" delay={0.2}>
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight shadow-text">
-                Phòng, chống tham nhũng
-                <span className="block text-red-400 mt-2">góp phần củng cố niềm tin</span>
+                Chương 3: Đảng lãnh đạo công cuộc đổi mới
+                <span className="block text-red-400 mt-2">(1975 - 2018)</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed shadow-text">
-                Vận dụng tư tưởng Hồ Chí Minh vào công tác xây dựng Đảng và Nhà nước.
-                Cung cấp thông tin minh bạch và nâng cao nhận thức cộng đồng.
+                Lãnh đạo công cuộc đổi mới, đẩy mạnh công nghiệp hóa, hiện đại hóa và hội nhập quốc tế từ năm 1986 đến nay.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button
@@ -248,7 +219,7 @@ const LandingPage = () => {
                   size="xl"
                   className="group"
                 >
-                  <span>Xem các vụ án</span>
+                  <span>Tìm hiểu Đại hội Đảng</span>
                   <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </Button>
                 <Button
@@ -277,33 +248,46 @@ const LandingPage = () => {
         title="Heyzine Flipbook">
       </iframe> */}
 
-      <section className="py-24 bg-white" style={{ backgroundColor: "tan" }}>
+      <section className="py-24 bg-white" style={{ backgroundColor: "#f8f9fa" }}>
 
         <Container>
           <ScrollRevealSection direction="up" delay={0.2}>
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Quan điểm của Chủ tịch Hồ Chí Minh về chống tham nhũng
+                Các Đại hội Đảng trong thời kỳ đổi mới
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Chủ tịch Hồ Chí Minh đã có những quan điểm sâu sắc về việc chống tham nhũng,
-                xây dựng một bộ máy nhà nước trong sạch và phục vụ nhân dân.
+                Đại hội XII và XIII đánh dấu những cột mốc quan trọng trong việc lãnh đạo công cuộc đổi mới, 
+                đẩy mạnh công nghiệp hóa, hiện đại hóa và hội nhập quốc tế.
               </p>
             </div>
           </ScrollRevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {hoChiMinhQuotes.map((item, index) => (
-              <ScrollRevealSection key={index} direction="up" delay={0.3 + index * 0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {congressData.map((congress, index) => (
+              <ScrollRevealSection key={congress.id} direction="up" delay={0.3 + index * 0.1}>
                 <Card className="bg-gradient-to-br from-red-50 to-red-100 border-red-200 hover:shadow-lg transition-all duration-300 h-full">
                   <CardContent padding="lg">
-                    <Quote className="h-10 w-10 text-red-600 mb-6" />
-                    <blockquote className="text-gray-800 italic mb-6 text-lg leading-relaxed">
-                      "{item.quote}"
-                    </blockquote>
-                    <p className="text-sm text-red-600 font-semibold">
-                      - {item.context}
-                    </p>
+                    <div className="flex items-center mb-4">
+                      <Calendar className="h-8 w-8 text-red-600 mr-3" />
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900">{congress.title}</h3>
+                        <p className="text-sm text-red-600">{congress.period}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 mb-4">{congress.description}</p>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-gray-900 mb-2">Chủ đề:</h4>
+                      <p className="text-sm text-gray-600 italic">"{congress.theme}"</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Mục tiêu chính:</h4>
+                      <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
+                        {congress.keyObjectives.slice(0, 2).map((objective, idx) => (
+                          <li key={idx}>{objective}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </CardContent>
                 </Card>
               </ScrollRevealSection>
@@ -314,21 +298,26 @@ const LandingPage = () => {
             <Card className="bg-gradient-to-r from-red-600 to-red-700 border-0 text-white overflow-hidden">
               <CardContent padding="lg">
                 <h3 className="text-3xl font-bold mb-8 text-center">
-                  Nguồn gốc và hậu quả của tham nhũng
+                  Các giai đoạn của công cuộc đổi mới
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <h4 className="text-xl font-semibold mb-4">Nguồn gốc:</h4>
-                    <p className="text-base leading-relaxed">
-                      Chủ nghĩa cá nhân - "Họ mang nặng chủ nghĩa cá nhân, việc gì cũng nghĩ đến lợi ích riêng của mình trước hết"
-                    </p>
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <h4 className="text-xl font-semibold mb-4">Hậu quả:</h4>
-                    <p className="text-base leading-relaxed">
-                      Làm suy giảm niềm tin của nhân dân đối với Đảng, ảnh hưởng đến tiền đồ của cách mạng
-                    </p>
-                  </div>
+                  {reformPeriods.slice(2, 4).map((period, index) => (
+                    <div key={period.id} className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                      <h4 className="text-xl font-semibold mb-4 flex items-center">
+                        <TrendingUp className="h-6 w-6 mr-2" />
+                        {period.title}
+                      </h4>
+                      <p className="text-base leading-relaxed mb-4">{period.description}</p>
+                      <ul className="space-y-2">
+                        {period.keyAchievements.map((achievement, idx) => (
+                          <li key={idx} className="flex items-start text-sm">
+                            <div className="h-2 w-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0" />
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -380,44 +369,60 @@ const LandingPage = () => {
           <ScrollRevealSection direction="up" delay={0.2}>
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Các vụ án tham nhũng điển hình
+                Trách nhiệm công dân của thanh niên trong kỷ nguyên mới
               </h2>
-              <div className="mt-8">
-                <CaseCarousel cases={corruptionCases} />
-              </div>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mt-8">
-                Công tác phòng, chống tham nhũng có ý nghĩa vô cùng quan trọng đối với sự tồn vong của chế độ
-                và củng cố niềm tin của nhân dân.
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
+                {youthResponsibility.introduction}
               </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                {youthResponsibility.keyRoles.map((role, index) => (
+                  <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">{role.title}</h4>
+                    <p className="text-gray-600">{role.description}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="bg-red-50 rounded-lg p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Yêu cầu đối với thanh niên</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {youthResponsibility.requirements.map((requirement, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="h-2 w-2 bg-red-600 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{requirement}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </ScrollRevealSection>
-
-          {/* <ScrollRevealSection direction="up" delay={0.4}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-red-600 mb-3">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 text-lg">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollRevealSection> */}
-
           <ScrollRevealSection direction="up" delay={0.6}>
             <Card className="bg-gradient-to-r from-red-600 to-red-700 border-0 text-white text-center overflow-hidden">
               <CardContent padding="lg">
                 <h3 className="text-3xl md:text-4xl font-bold mb-8">
-                  Cùng chung tay xây dựng một xã hội minh bạch
+                  So sánh Đại hội XII và XIII
                 </h3>
-                <p className="text-xl mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto">
-                  Khi nhân dân thấy rằng Đảng và Nhà nước thực sự quyết tâm làm trong sạch bộ máy,
-                  xử lý nghiêm những "con sâu mọt" đục khoét của công, lòng tin của họ vào chế độ
-                  và tương lai của đất nước sẽ ngày càng được củng cố và nâng cao.
-                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-white/20">
+                        <th className="py-3 px-4 text-white font-semibold">Khía cạnh</th>
+                        <th className="py-3 px-4 text-white font-semibold">Đại hội XII (2016)</th>
+                        <th className="py-3 px-4 text-white font-semibold">Đại hội XIII (2021)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {comparisonTable.categories.slice(0, 2).map((category, index) => (
+                        <tr key={index} className="border-b border-white/10">
+                          <td className="py-4 px-4 font-medium text-white">{category.aspect}</td>
+                          <td className="py-4 px-4 text-gray-100 text-sm">{category.congress12}</td>
+                          <td className="py-4 px-4 text-gray-100 text-sm">{category.congress13}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </CardContent>
             </Card>
           </ScrollRevealSection>

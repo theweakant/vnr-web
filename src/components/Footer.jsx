@@ -1,121 +1,110 @@
-import { Link } from 'react-router-dom';
-import { Shield, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Users, BookOpen } from 'lucide-react';
+import { Container } from './ui';
 
-const Footer = () => {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    navigation: [
-      { name: 'Trang chủ', path: '/' },
-      { name: 'Vụ án', path: '/cases' },
-      { name: 'Tài liệu', path: '/resources' },
-      { name: 'Giới thiệu', path: '/about' }
-    ],
-    resources: [
-      { name: 'Thanh tra Chính phủ', url: 'https://thanhtra.gov.vn', external: true },
-      { name: 'Viện Kiểm sát Nhân dân Tối cao', url: 'https://vksndtc.gov.vn', external: true },
-      { name: 'Bộ Công an', url: 'https://bocongan.gov.vn', external: true }
-    ],
-    legal: [
-      { name: 'Luật Phòng, chống tham nhũng', url: 'https://thuvienphapluat.vn', external: true },
-      { name: 'Nghị quyết 04-NQ/TW', url: 'https://thuvienphapluat.vn', external: true }
-    ]
+  const projectInfo = [
+    { label: 'Dự Án', value: 'VNR20' },
+    { label: 'Nhóm', value: 'Nhóm 3' },
+  ];
+
+  // Cập nhật: Thêm MSSV cho từng thành viên
+  const members = [
+    { name: 'Nam', id: 'SE1' },
+    { name: 'Nhật', id: 'SE2' },
+    { name: 'Dĩ', id: 'SE3' },
+    { name: 'Thy', id: 'SE4' },
+    { name: 'Ngọc', id: 'SE5' },
+  ];
+
+  const socialLinks = [
+    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Mail, href: '#', label: 'Email' },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <Shield className="h-8 w-8 text-red-500" />
-              <span className="text-xl font-bold">Chống Tham Nhũng</span>
-            </div>
-            <p className="text-gray-300 text-sm mb-4">
-              Website sáng tạo môn Tư tưởng Hồ Chí Minh, cung cấp kiến thức và tình huống 
-              về phòng, chống tham nhũng nhằm nâng cao nhận thức và củng cố niềm tin vào pháp luật.
-            </p>
-            <div className="flex space-x-4">
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Mail className="h-4 w-4" />
-                <span>namnqse182628@fpt.edu.vn</span>
+    <footer className="bg-gradient-to-b from-slate-50 to-slate-100 border-t border-slate-200 mt-20">
+      <Container>
+        <motion.div
+          className="py-12 md:py-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Project Info */}
+            <motion.div className="lg:col-span-2" variants={itemVariants}>
+              <div className="flex items-center gap-2 mb-4">
+                <BookOpen className="w-6 h-6 text-blue-600" />
+                <h3 className="text-lg font-bold text-slate-900">VNR20</h3>
               </div>
-            </div>
+              <p className="text-sm text-slate-600 mb-4">
+                Dự án học thuật của Nhóm 3 - Trường Đại học FPT
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {projectInfo.map((item, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <Users className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500">{item.label}</p>
+                      <p className="text-sm font-medium text-slate-900">{item.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Members - Hiển thị ngang với MSSV */}
+            <motion.div className="lg:col-span-2" variants={itemVariants}>
+              <h4 className="font-semibold text-slate-900 mb-4">Thành Viên</h4>
+              <div className="flex flex-wrap gap-4">
+                {members.map((member, index) => (
+                  <div key={index} className="flex flex-col">
+                    <span className="text-sm font-medium text-slate-900">{member.name}</span>
+                    <span className="text-xs text-slate-500">{member.id}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          {/* Navigation Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Điều hướng</h3>
-            <ul className="space-y-2">
-              {footerLinks.navigation.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Divider */}
+          <motion.div
+            className="border-t border-slate-200"
+            variants={itemVariants}
+          />
 
-          {/* Resources Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Tài nguyên</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm flex items-center space-x-1"
-                  >
-                    <span>{link.name}</span>
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Pháp luật</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm flex items-center space-x-1"
-                  >
-                    <span>{link.name}</span>
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Chống Tham Nhũng. Tất cả quyền được bảo lưu.
+          {/* Bottom */}
+          <motion.div
+            className="pt-8 text-center"
+            variants={itemVariants}
+          >
+            <p className="text-sm text-slate-600">
+              © {currentYear} Dự án VNR20 - Nhóm 3. Tất cả các quyền được bảo lưu.
             </p>
-            <p className="text-gray-400 text-sm mt-2 md:mt-0">
-              HCM202
-            </p>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </Container>
     </footer>
   );
-};
-
-export default Footer;
+}

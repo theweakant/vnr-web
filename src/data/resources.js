@@ -1,12 +1,12 @@
 export const resources = [
-  // Các cổng thông tin điện tử của Chính phủ và Cơ quan chức năng
+  // Tài liệu chính thức của Đảng
   {
     id: 1,
-    title: "Cổng Thông tin điện tử Bộ Công an",
-    type: "Cơ quan nhà nước",
-    url: "https://bocongan.gov.vn",
-    description: "Nơi công bố thông tin ban đầu về việc khởi tố, bắt giữ các bị can và diễn biến điều tra",
-    icon: "shield-check"
+    title: "Văn kiện Đại hội đại biểu toàn quốc lần thứ XII",
+    type: "Tài liệu Đảng",
+    url: "https://dangcongsan.vn",
+    description: "Các báo cáo, nghị quyết và văn kiện chính thức của Đại hội XII",
+    icon: "book-open"
   },
   {
     id: 2,
@@ -148,9 +148,9 @@ export const resources = [
 
 export const resourceTypes = [
   "Tất cả",
-  "Cơ quan nhà nước",
-  "Truyền thông nhà nước",
-  "Báo chí",
-  "Văn bản pháp luật",
-  "Tổ chức quốc tế"
+  "Tài liệu Đảng",
+  "Nghị quyết",
+  "Báo cáo chính trị",
+  "Sách và tài liệu",
+  "Video và multimedia"
 ];
