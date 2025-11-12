@@ -89,20 +89,6 @@ export default function HomePage() {
             >
               Khám phá lịch sử, chính sách, và tầm nhìn phát triển của Việt Nam từ Đại hội VI (1986) đến nay
             </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={itemVariants}
-            >
-              <Link to={`/chapter/${chapters[0].id.split('-')[1]}`}>
-                <Button size="lg" variant="primary">
-                  Bắt Đầu Đọc <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline">
-                Tìm Hiểu Thêm
-              </Button>
-            </motion.div>
           </motion.div>
         </Container>
       </Section>

@@ -108,51 +108,6 @@ const ScrollRevealSection = ({ children, direction = 'up', delay = 0 }) => {
   );
 };
 
-const CaseCarousel = ({ cases }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? cases.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === cases.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  return (
-    <div className="max-w-4xl mx-auto relative group">
-      <div className="relative h-80 w-full overflow-hidden rounded-lg">
-        {cases.map((caseItem, index) => (
-          <div
-            key={caseItem.id}
-            className={`absolute w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <img src={caseItem.image} alt={caseItem.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex flex-col justify-end p-6"
-              style={{ backgroundColor: "rgba(144, 17, 17, 0.5)" }}>
-              <h3 className="text-2xl font-bold text-white">{caseItem.title}</h3>
-              <p className="text-gray-200 mt-2">{caseItem.summary}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Left Arrow */}
-      <div className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <ChevronLeft onClick={prevSlide} size={30} />
-      </div>
-      {/* Right Arrow */}
-      <div className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <ChevronRight onClick={nextSlide} size={30} />
-      </div>
-    </div>
-  )
-}
-
-// --- Component chính: LandingPage ---
 const LandingPage = () => {
   const backgroundImages = [
     '/landingpage1.jpg',
@@ -174,18 +129,6 @@ const LandingPage = () => {
     { icon: BookOpen, title: "Tài liệu tham khảo", description: "Cung cấp các tài liệu, văn bản pháp luật liên quan đến chống tham nhũng" }
   ];
 
-  const stats = [
-    { number: "20+", label: "Vụ án được theo dõi" },
-    { number: "10+", label: "Tài liệu tham khảo" },
-    { number: "20+", label: "Người dùng truy cập" },
-    { number: "100%", label: "Độ chính xác thông tin" }
-  ];
-
-  const hoChiMinhQuotes = [
-    { quote: "Tham ô là hành động xấu xa nhất, tội lỗi, đê tiện nhất trong xã hội. Tham ô là trộm cắp của công, chiếm của công làm của tư.", context: "Về bản chất của tham nhũng" },
-    { quote: "Tham ô, lãng phí và bệnh quan liêu là kẻ thù của nhân dân, của bộ đội và của Chính phủ.", context: "Về tác hại của tham nhũng" },
-    { quote: "Phải thực hành tự phê bình và phê bình nghiêm chỉnh trong Đảng... Kỷ luật của Đảng phải nghiêm minh.", context: "Về giải pháp chống tham nhũng" }
-  ];
 
   return (
     <div className="min-h-screen">
@@ -236,7 +179,6 @@ const LandingPage = () => {
         </Container>
       </section>
 
-      {/* Hồ Chí Minh's View Section */}
 
       {/* <iframe
         allowFullScreen
