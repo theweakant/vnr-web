@@ -221,60 +221,43 @@ export const guidingPrinciples = {
   "sections": [
     {
       "id": "I",
-      "heading": "Quan điểm chỉ đạo chung và Bài học kinh nghiệm (Đổi mới)",
+      "heading": "Bài học Đổi mới",
       "bullets": [
-        "Luôn kiên định mục tiêu độc lập dân tộc và chủ nghĩa xã hội.",
-        "Tôn trọng thực tiễn, đổi mới sáng tạo, không giáo điều, không chủ quan.",
-        "Dựa vào nhân dân, phát huy sức mạnh đại đoàn kết toàn dân tộc.",
-        "Tăng cường xây dựng Đảng trong sạch, vững mạnh.",
-        "Gắn kết chặt chẽ và triển khai đồng bộ các nhiệm vụ: phát triển kinh tế - xã hội là trung tâm; xây dựng Đảng là then chốt; phát triển văn hóa là nền tảng tinh thần; bảo đảm quốc phòng và an ninh là nhiệm vụ trọng yếu, thường xuyên.",
-        "Chủ động, tích cực hội nhập quốc tế trên cơ sở giữ vững độc lập, tự chủ, lấy lợi ích quốc gia dân tộc làm mục tiêu cao nhất."
+        "Kiên định độc lập dân tộc và CNXH.",
+        "Đổi mới sáng tạo, tôn trọng thực tiễn.",
+        "Dựa vào dân, phát huy đại đoàn kết.",
+        "Xây dựng Đảng trong sạch, vững mạnh.",
+        "Kinh tế - xã hội là trung tâm; Đảng là then chốt; văn hóa là nền tảng; quốc phòng - an ninh là trọng yếu.",
+        "Chủ động hội nhập, giữ vững độc lập, tự chủ."
       ]
     },
     {
       "id": "II",
-      "heading": "Quan điểm chỉ đạo sau Đại hội XII (2016) – Nghị quyết Trung ương",
+      "heading": "Sau Đại hội XII (2016)",
       "bullets": [
-        "Về đổi mới mô hình tăng trưởng: chú trọng tăng năng suất lao động, sử dụng hiệu quả các nguồn lực, phát huy tinh thần yêu nước và thành tựu khoa học - công nghệ.",
-        "Về hoàn thiện thể chế KTTT định hướng XHCN: tôn trọng quy luật thị trường, bảo đảm định hướng XHCN, đồng bộ các thành phần thể chế và gắn kết tăng trưởng với tiến bộ, công bằng xã hội.",
-        "Về phát triển kinh tế tư nhân: phát triển lành mạnh theo cơ chế thị trường, là động lực quan trọng để giải phóng sức sản xuất.",
-        "Về DNNN: doanh nghiệp nhà nước phải hoạt động theo cơ chế thị trường, tự chủ, chịu trách nhiệm, cạnh tranh bình đẳng và giữ vai trò nòng cốt.",
-        "Về xây dựng cán bộ cấp chiến lược: xây dựng đội ngũ cán bộ thường xuyên, thận trọng, khoa học; Đảng lãnh đạo công tác cán bộ và quản lý đội ngũ trong hệ thống chính trị.",
-        "Về bảo vệ, chăm sóc sức khỏe: đầu tư cho y tế là đầu tư cho phát triển; bảo vệ sức khỏe là trách nhiệm của toàn xã hội."
+        "Đổi mới mô hình tăng trưởng: nâng năng suất, tận dụng KH-CN.",
+        "Hoàn thiện thể chế KTTT định hướng XHCN: tuân quy luật thị trường, bảo đảm công bằng xã hội.",
+        "Phát triển kinh tế tư nhân là động lực quan trọng.",
+        "DNNN hoạt động thị trường, tự chủ, cạnh tranh bình đẳng.",
+        "Xây dựng đội ngũ cán bộ chiến lược khoa học, vững vàng.",
+        "Đầu tư y tế là đầu tư phát triển, trách nhiệm toàn xã hội."
       ]
     },
     {
       "id": "III",
-      "heading": "Quan điểm chỉ đạo tại Đại hội XIII (2021)",
+      "heading": "Đại hội XIII (2021)",
       "items": [
-        {
-          "title": "Kiên định Nguyên tắc",
-          "description": "Kiên định và vận dụng, phát triển sáng tạo chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh; kiên định mục tiêu độc lập dân tộc và chủ nghĩa xã hội; kiên định đường lối đổi mới."
-        },
-        {
-          "title": "Lợi ích Quốc gia",
-          "description": "Bảo đảm cao nhất lợi ích quốc gia - dân tộc trên cơ sở các nguyên tắc cơ bản của Hiến chương Liên hợp quốc và luật pháp quốc tế, bình đẳng, hợp tác, cùng có lợi."
-        },
-        {
-          "title": "Tứ trụ Chiến lược",
-          "description": "Gắn kết chặt chẽ và triển khai đồng bộ các nhiệm vụ: phát triển kinh tế - xã hội là trung tâm; xây dựng Đảng là then chốt; phát triển văn hóa là nền tảng tinh thần; bảo đảm quốc phòng, an ninh là trọng yếu, thường xuyên."
-        },
-        {
-          "title": "Nguồn lực",
-          "description": "Kết hợp sức mạnh dân tộc với sức mạnh thời đại, phát huy tối đa nội lực, tranh thủ ngoại lực; nguồn lực con người là quan trọng nhất."
-        },
-        {
-          "title": "Động lực mới",
-          "description": "Khơi dậy tinh thần yêu nước, ý chí tự cường, khát vọng phát triển; ứng dụng mạnh mẽ khoa học và công nghệ, nhất là thành tựu CMCN 4.0, thúc đẩy đổi mới sáng tạo."
-        },
-        {
-          "title": "Xây dựng Đảng",
-          "description": "Tăng cường xây dựng, chỉnh đốn Đảng và hệ thống chính trị trong sạch, vững mạnh; xây dựng đội ngũ cán bộ cấp chiến lược đủ phẩm chất, năng lực và uy tín."
-        }
+        { "title": "Kiên định Nguyên tắc", "description": "Giữ vững và phát triển sáng tạo CN Mác - Lênin, tư tưởng Hồ Chí Minh, mục tiêu độc lập dân tộc và CNXH." },
+        { "title": "Lợi ích Quốc gia", "description": "Đặt lợi ích quốc gia - dân tộc lên hàng đầu, theo luật pháp quốc tế, hợp tác bình đẳng, cùng có lợi." },
+        { "title": "Tứ trụ Chiến lược", "description": "Kinh tế - xã hội; Đảng; văn hóa; quốc phòng - an ninh gắn kết đồng bộ." },
+        { "title": "Nguồn lực", "description": "Phát huy nội lực, tranh thủ ngoại lực; con người là nguồn lực quyết định." },
+        { "title": "Động lực mới", "description": "Khơi dậy yêu nước, khát vọng phát triển; ứng dụng KH-CN, CMCN 4.0." },
+        { "title": "Xây dựng Đảng", "description": "Xây dựng, chỉnh đốn Đảng và hệ thống chính trị trong sạch, vững mạnh." }
       ]
     }
   ]
 };
+
 
 export const keyTasks = [
   {
