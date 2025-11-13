@@ -13,6 +13,7 @@ const navSections = [
   { id: 'nhiem-vu', label: 'Nhiệm vụ' },
   { id: 'dot-pha', label: 'Đột phá' },
   { id: 'stats', label: 'Số liệu' },
+  { id: 'game', label: 'Game', isExternal: true },
 ];
 
 const Header = () => {
@@ -23,6 +24,13 @@ const Header = () => {
 
   const handleScrollTo = (id) => {
     setIsOpen(false);
+    
+    // Handle external game link
+    if (id === 'game') {
+      window.open('https://nhatdang1102.github.io/vnr-game/?fbclid=IwY2xjawOCIeBleHRuA2FlbQIxMABicmlkETFzYWFjWkM0M01RMU5wOE5Zc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkXb0a19w2vYRlhMIgvMd0tBlMcOP07aYUwFdjMMkenTS5a0bZrc8VVdkpK1_aem_TeY9xOFnrSpWmX8BVnTh9w', '_blank', 'noopener,noreferrer');
+      return;
+    }
+    
     // If the timeline/tab is requested, navigate to dedicated route
     if (id === 'timeline') {
       navigate('/timeline');
