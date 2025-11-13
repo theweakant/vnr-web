@@ -16,7 +16,7 @@ export default function Footer() {
     { name: 'Nam', id: 'SE182628' },
     { name: 'Nhật', id: 'SE184630' },
     { name: 'Dĩ', id: 'SE184543' },
-    { name: 'Thy', id: 'SE4' },
+    { name: 'Thy', id: 'SE172776' },
     { name: 'Ngọc', id: 'SE5' },
   ];
 
