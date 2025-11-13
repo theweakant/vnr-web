@@ -59,7 +59,7 @@ export default function HomePage() {
           />
         </div>
 
-        <Container className="relative z-10">
+<Container className="relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
             variants={containerVariants}
@@ -72,23 +72,34 @@ export default function HomePage() {
             >
               <BookOpen className="w-8 h-8 text-blue-600" />
               <span className="px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
-                Tài liệu Giáo dục
+                Lịch sử đảng Việt Nam
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
               variants={itemVariants}
             >
-              Đường Lối <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Đổi Mới</span> Việt Nam
+              Đảng lãnh đạo cả nước quá độ lên chủ nghĩa xã hội và tiến hành{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
+                công cuộc đổi mới
+              </span>
             </motion.h1>
 
-            <motion.p
-              className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto"
+            <motion.div
+              className="text-lg md:text-xl text-slate-600 mb-8 max-w-3xl mx-auto space-y-4"
               variants={itemVariants}
             >
-              Khám phá lịch sử, chính sách, và tầm nhìn phát triển của Việt Nam từ Đại hội VI (1986) đến nay
-            </motion.p>
+              <p className="font-semibold text-slate-800">
+                Chương 3: Đảng lãnh đạo cả nước quá độ lên chủ nghĩa xã hội và tiến hành công cuộc đổi mới (1975 - 2018)
+              </p>
+              <p className="text-slate-700">
+                <span className="font-medium">II.</span> Lãnh đạo công cuộc đổi mới, đẩy mạnh công nghiệp hóa, hiện đại hóa và hội nhập quốc tế (từ năm 1986 đến nay)
+              </p>
+              <p className="text-slate-600">
+                <span className="font-medium">2.</span> Tiếp tục công cuộc đổi mới, đẩy mạnh công nghiệp hoá, hiện đại hoá và hội nhập quốc tế (từ năm 1996 đến nay)
+              </p>
+            </motion.div>
           </motion.div>
         </Container>
       </Section>
