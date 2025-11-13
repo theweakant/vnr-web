@@ -11,19 +11,13 @@ export default function Footer() {
     { label: 'Nhóm', value: 'Nhóm 3' },
   ];
 
-  // Cập nhật: Thêm MSSV cho từng thành viên
+  
   const members = [
-    { name: 'Nam', id: 'SE1' },
-    { name: 'Nhật', id: 'SE2' },
-    { name: 'Dĩ', id: 'SE3' },
+    { name: 'Nam', id: 'SE182628' },
+    { name: 'Nhật', id: 'SE184630' },
+    { name: 'Dĩ', id: 'SE184543' },
     { name: 'Thy', id: 'SE4' },
     { name: 'Ngọc', id: 'SE5' },
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' },
   ];
 
   const containerVariants = {

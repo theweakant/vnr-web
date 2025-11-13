@@ -93,61 +93,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Bối cảnh: So sánh Đại hội XII và XIII */}
-      <Section id="timeline" title="Bối cảnh & So sánh" subtitle="So sánh Đại hội XII (2016) và XIII (2021)">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-bold mb-4">So sánh Đại hội XII và XIII</h3>
-              <div className="grid grid-cols-1 gap-4">
-                <div className="overflow-x-auto">
-                  <table className="w-full table-auto border-collapse">
-                    <thead>
-                      <tr className="bg-blue-50">
-                        <th className="px-4 py-3 text-left font-semibold">Tiêu chí</th>
-                        <th className="px-4 py-3 text-left font-semibold">Đại hội XII (2016)</th>
-                        <th className="px-4 py-3 text-left font-semibold">Đại hội XIII (2021)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-t">
-                        <td className="px-4 py-3 font-medium">Mục tiêu chính</td>
-                        <td className="px-4 py-3">Sớm trở thành nước công nghiệp theo hướng hiện đại</td>
-                        <td className="px-4 py-3">Đến giữa thế kỷ XXI trở thành nước phát triển</td>
-                      </tr>
-                      <tr className="border-t bg-slate-50">
-                        <td className="px-4 py-3 font-medium">Tầm nhìn</td>
-                        <td className="px-4 py-3">Giai đoạn 2016-2020</td>
-                        <td className="px-4 py-3">Đến 2030 và 2045</td>
-                      </tr>
-                      <tr className="border-t">
-                        <td className="px-4 py-3 font-medium">Tổng kết</td>
-                        <td className="px-4 py-3">30 năm đổi mới</td>
-                        <td className="px-4 py-3">35 năm đổi mới</td>
-                      </tr>
-                      <tr className="border-t bg-slate-50">
-                        <td className="px-4 py-3 font-medium">Trọng tâm mới</td>
-                        <td className="px-4 py-3">3 đột phá chiến lược cơ bản</td>
-                        <td className="px-4 py-3">3 đột phá nâng cấp (thêm chuyển đổi số, quản trị hiện đại)</td>
-                      </tr>
-                      <tr className="border-t">
-                        <td className="px-4 py-3 font-medium">Động lực</td>
-                        <td className="px-4 py-3">Khoa học công nghệ</td>
-                        <td className="px-4 py-3">CMCN 4.0, chuyển đổi số, khát vọng phát triển</td>
-                      </tr>
-                      <tr className="border-t bg-slate-50">
-                        <td className="px-4 py-3 font-medium">Nguồn lực</td>
-                        <td className="px-4 py-3">Nguồn nhân lực</td>
-                        <td className="px-4 py-3">Nguồn nhân lực chất lượng cao + hạ tầng số</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
+
 
       {/* Quan điểm Section */}
 <section id="quan-diem" className="py-20 bg-gradient-to-br from-blue-50 via-white to-teal-50">
@@ -226,12 +172,6 @@ export default function HomePage() {
       {/* Nhiệm vụ Section */}
      <Section id="nhiem-vu" title="Nhiệm vụ trọng tâm" subtitle="Sáu nhiệm vụ trọng tâm (2021-2025)">
         <Container>
-          {/* Header với style mới */}
-          <div className="mb-16 max-w-3xl">
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Các nhiệm vụ chiến lược trong giai đoạn 2021-2025 nhằm đưa đất nước phát triển toàn diện
-            </p>
-          </div>
 
           {/* Grid 3 cột */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
@@ -271,67 +211,126 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Features Section */}
-      <Section
-        id="dot-pha"
-        title="Nội Dung Chính"
-        subtitle="Khám phá 4 chương về lịch sử và chính sách phát triển"
-      >
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {chapters.map((chapter, index) => (
-            <motion.div key={chapter.id} variants={itemVariants}>
-              <Link to={`/chapter/${chapter.number}`}>
-                <Card className="h-full cursor-pointer hover:border-blue-400 transition-colors">
-                  <CardContent className="pt-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-3xl font-bold text-blue-600">Chương {chapter.number}</span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-2">{chapter.title}</h3>
-                        <p className="text-slate-600 mb-4">{chapter.description}</p>
-                      </div>
-                    </div>
-                    <Button variant="ghost" className="group">
-                      Đọc Thêm <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </Section>
+      {/* Content Section */}
+<Section
+  id="dot-pha"
+  title="Nội Dung Chính"
+  subtitle="Khám phá lịch sử và chính sách phát triển"
+>
+  <motion.div
+    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" // Cập nhật: 3 cột trên lg
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    {chapters.map((chapter, index) => (
+      <motion.div key={chapter.id} variants={itemVariants}>
+        <Link to={`/chapter/${chapter.number}`}>
+          <Card className="h-full cursor-pointer hover:border-blue-400 transition-colors p-5"> {/* Thêm padding và làm nhỏ card */}
+            <CardContent className="pt-4 pb-4"> {/* Giảm padding trên/dưới */}
+              <div className="flex items-start justify-between mb-3"> {/* Giảm khoảng cách */}
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-lg font-bold text-blue-600">Mục {chapter.number}</span> {/* Giảm font */}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{chapter.title}</h3> {/* Giảm font */}
+                  <p className="text-sm text-slate-600 mb-4">
+                    {chapter.description.length > 50
+                      ? `${chapter.description.substring(0, 50)}...`
+                      : chapter.description}
+                  </p>
+                </div>
+              </div>
+              <Button variant="ghost" className="text-xs text-blue-600 px-3 py-1 h-auto">
+                Đọc Thêm
+              </Button>
+            </CardContent>
+          </Card>
+        </Link>
+      </motion.div>
+    ))}
+  </motion.div>
+</Section>
 
   {/* Stats Section */}
-  <Section id="stats" className="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-16 md:py-24 rounded-3xl">
-        <Container>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { number: '4', label: 'Chương Chính' },
-              { number: '35', label: 'Năm Đổi Mới' },
-              { number: '2045', label: 'Tầm Nhìn Đến Năm' },
-            ].map((stat, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <div className="text-5xl font-bold mb-2">{stat.number}</div>
-                <p className="text-xl opacity-90">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
+<Section id="stats" className="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-16 md:py-24 rounded-3xl">
+  <Container>
+    <motion.div
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Con Số Ấn Tượng
+      </h2>
+      <p className="text-xl text-white/90">
+        Hành trình đổi mới và phát triển của đất nước
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {[
+        { 
+          number: '35+', 
+          label: 'Năm Đổi Mới',
+          description: '(1986-2021)',
+ 
+        },
+        { 
+          number: '3', 
+          label: 'Đột Phá Chiến Lược',
+          description: '',
+
+        },
+        { 
+          number: '6', 
+          label: 'Nhiệm Vụ Trọng Tâm',
+          description: '',
+
+        },
+        { 
+          number: '2045', 
+          label: 'Tầm Nhìn Phát Triển',
+          description: 'Nước phát triển theo CNXH',
+
+        },
+      ].map((stat, index) => (
+        <motion.div 
+          key={index} 
+          variants={itemVariants}
+          className="relative"
+        >
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20 h-full">
+            
+            {/* Number */}
+            <div className="text-5xl md:text-6xl font-bold mb-2">
+              {stat.number}
+            </div>
+            
+            {/* Label */}
+            <p className="text-xl font-semibold mb-2">
+              {stat.label}
+            </p>
+            
+            {/* Description */}
+            <p className="text-sm text-white/80 leading-relaxed">
+              {stat.description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </Container>
+</Section>
 
       {/* Quick Links / Videos Section */}
       <Section title="Khám Phá Nhanh">
@@ -389,6 +388,62 @@ export default function HomePage() {
         </motion.div>
       </Section>
 
+      {/* Bối cảnh: So sánh Đại hội XII và XIII */}
+      <Section id="timeline" title="Bối cảnh & So sánh" subtitle="So sánh Đại hội XII (2016) và XIII (2021)">
+        <Container>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-xl font-bold mb-4">So sánh Đại hội XII và XIII</h3>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="overflow-x-auto">
+                  <table className="w-full table-auto border-collapse">
+                    <thead>
+                      <tr className="bg-blue-50">
+                        <th className="px-4 py-3 text-left font-semibold">Tiêu chí</th>
+                        <th className="px-4 py-3 text-left font-semibold">Đại hội XII (2016)</th>
+                        <th className="px-4 py-3 text-left font-semibold">Đại hội XIII (2021)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-t">
+                        <td className="px-4 py-3 font-medium">Mục tiêu chính</td>
+                        <td className="px-4 py-3">Sớm trở thành nước công nghiệp theo hướng hiện đại</td>
+                        <td className="px-4 py-3">Đến giữa thế kỷ XXI trở thành nước phát triển</td>
+                      </tr>
+                      <tr className="border-t bg-slate-50">
+                        <td className="px-4 py-3 font-medium">Tầm nhìn</td>
+                        <td className="px-4 py-3">Giai đoạn 2016-2020</td>
+                        <td className="px-4 py-3">Đến 2030 và 2045</td>
+                      </tr>
+                      <tr className="border-t">
+                        <td className="px-4 py-3 font-medium">Tổng kết</td>
+                        <td className="px-4 py-3">30 năm đổi mới</td>
+                        <td className="px-4 py-3">35 năm đổi mới</td>
+                      </tr>
+                      <tr className="border-t bg-slate-50">
+                        <td className="px-4 py-3 font-medium">Trọng tâm mới</td>
+                        <td className="px-4 py-3">3 đột phá chiến lược cơ bản</td>
+                        <td className="px-4 py-3">3 đột phá nâng cấp (thêm chuyển đổi số, quản trị hiện đại)</td>
+                      </tr>
+                      <tr className="border-t">
+                        <td className="px-4 py-3 font-medium">Động lực</td>
+                        <td className="px-4 py-3">Khoa học công nghệ</td>
+                        <td className="px-4 py-3">CMCN 4.0, chuyển đổi số, khát vọng phát triển</td>
+                      </tr>
+                      <tr className="border-t bg-slate-50">
+                        <td className="px-4 py-3 font-medium">Nguồn lực</td>
+                        <td className="px-4 py-3">Nguồn nhân lực</td>
+                        <td className="px-4 py-3">Nguồn nhân lực chất lượng cao + hạ tầng số</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* Video modal */}
       <VideoModal
         videoId={activeVideo?.video}
@@ -396,5 +451,7 @@ export default function HomePage() {
         onClose={() => setActiveVideo(null)}
       />
     </div>
+
+    
   );
 }

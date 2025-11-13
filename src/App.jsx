@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -10,9 +11,21 @@ import LandingPage from './pages/LandingPage';
 import TimelinePage from './pages/TimelinePage';
 import './App.css';
 
+// Component tự động scroll to top khi route thay đổi
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -23,13 +36,24 @@ function App() {
             <Route path="/cases" element={<CasesPage />} />
             <Route path="/cases/:id" element={<CaseDetailPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/chapter/:chapterId" element={<ChapterPage />} />
+            
+            {/* FIX: Thêm key prop để force re-render khi chapterId thay đổi */}
+            <Route 
+              path="/chapter/:chapterId" 
+              element={<ChapterPageWrapper />} 
+            />
           </Routes>
         </main>
         <Footer />
       </div>
     </Router>
   );
+}
+
+function ChapterPageWrapper() {
+  const location = useLocation();
+  
+  return <ChapterPage key={location.pathname} />;
 }
 
 export default App;

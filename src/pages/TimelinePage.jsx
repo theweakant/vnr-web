@@ -172,8 +172,8 @@ export default function TimelinePage() {
     <div className="min-h-screen bg-white py-20">
       <div className="max-w-7xl mx-auto mb-7">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">Timeline</h1>
-          <p className="text-slate-600 text-lg">Các mốc chính của công cuộc đổi mới</p>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">Giai đoạn</h1>
+          <p className="text-slate-600 text-lg">Các mốc thời gian của công cuộc đổi mới</p>
         </div>
         <TimelineTab milestones={milestones} />
       </div>
