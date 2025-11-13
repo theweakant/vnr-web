@@ -445,8 +445,8 @@ export const contentData = {
 {
   "id": "chapter-5",
   "number": "V",
-  "title": "CLO 6 - Vai Trò và Trách Nhiệm của Thanh Niên",
-  "subtitle": "Nâng cao ý thức công dân trước nhiệm vụ trọng đại của đất nước",
+  "title": "CLO 6 - Nâng cao ý thức rõ hơn về trách nhiệm công dân",
+  "subtitle": "Trước những nhiệm vụ trọng đại của đất nước",
   "description": "Quan điểm chiến lược về vai trò của thanh niên và trách nhiệm công dân trong sự nghiệp xây dựng và bảo vệ Tổ quốc",
   "sections": [
     {
