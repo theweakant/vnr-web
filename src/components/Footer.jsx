@@ -17,7 +17,7 @@ export default function Footer() {
     { name: 'Nhật', id: 'SE184630' },
     { name: 'Dĩ', id: 'SE184543' },
     { name: 'Thy', id: 'SE172776' },
-    { name: 'Ngọc', id: 'SE17336' },
+    { name: 'Ngọc', id: 'SE173386' },
   ];
 
   const containerVariants = {
